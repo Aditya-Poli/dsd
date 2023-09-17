@@ -1,0 +1,60 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "D:\iverilog\lib\ivl\system.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\va_math.vpi";
+S_000001f438b09d10 .scope module, "AND_GLM_tb" "AND_GLM_tb" 2 5;
+ .timescale 0 0;
+v000001f438b0bcc0_0 .var "A", 0 0;
+v000001f438b0bd60_0 .var "B", 0 0;
+v000001f438b0be00_0 .net "Y", 0 0, L_000001f438b23060;  1 drivers
+S_000001f438b09ea0 .scope module, "and_glm" "AND_GLM" 2 10, 3 6 0, S_000001f438b09d10;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Y";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000001f438b23060 .functor AND 1, v000001f438b0bcc0_0, v000001f438b0bd60_0, C4<1>, C4<1>;
+v000001f438b23260_0 .net "A", 0 0, v000001f438b0bcc0_0;  1 drivers
+v000001f438b55d70_0 .net "B", 0 0, v000001f438b0bd60_0;  1 drivers
+v000001f438b0bc20_0 .net "Y", 0 0, L_000001f438b23060;  alias, 1 drivers
+    .scope S_000001f438b09d10;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f438b0bcc0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f438b0bd60_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f438b0bcc0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f438b0bd60_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f438b0bcc0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f438b0bd60_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f438b0bcc0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f438b0bd60_0, 0, 1;
+    %delay 1, 0;
+    %end;
+    .thread T_0;
+    .scope S_000001f438b09d10;
+T_1 ;
+    %vpi_call 2 21 "$monitor", "%t | A = %d| B = %d| Y = %d", $time, v000001f438b0bcc0_0, v000001f438b0bd60_0, v000001f438b0be00_0 {0 0 0};
+    %vpi_call 2 22 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call 2 23 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    ".\AND_GLM_tb.v";
+    "./AND_GLM.v";
